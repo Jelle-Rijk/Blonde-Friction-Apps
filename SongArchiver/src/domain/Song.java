@@ -16,14 +16,16 @@ public class Song implements Comparable<Song> {
 	/*
 	 * CONSTRUCTORS
 	 */
-	public Song(String title, SongStatus status) {
+
+	public Song(String title, SongStatus status, int bpm) {
 		setTitle(title);
 		setStatus(status);
+		setBPM(bpm);
 		recordings = new HashSet<Recording>();
 	}
 
 	public Song(String title) {
-		this(title, SongStatus.WORK_IN_PROGRESS);
+		this(title, SongStatus.WORK_IN_PROGRESS, -1);
 	}
 
 	/*
@@ -36,6 +38,7 @@ public class Song implements Comparable<Song> {
 	/*
 	 * COMPARING
 	 */
+
 	@Override
 	public boolean equals(Object o) {
 		if (o == null)
@@ -62,6 +65,7 @@ public class Song implements Comparable<Song> {
 	/*
 	 * GETTERS - SETTERS
 	 */
+
 	public String getTitle() {
 		return title;
 	}
@@ -85,10 +89,14 @@ public class Song implements Comparable<Song> {
 	}
 
 	public void setBPM(int bpm) {
+		if (bpm <= 0 && bpm != -1)
+			throw new IllegalArgumentException("Invalid BPM");
 		this.bpm = bpm;
 	}
 
 	public int getBPM() {
+		if (bpm == -1)
+			throw new IllegalArgumentException("BPM was not set.");
 		return bpm;
 	}
 
