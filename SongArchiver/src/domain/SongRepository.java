@@ -15,7 +15,7 @@ public class SongRepository {
 	 */
 	public void addSong(Song song) {
 		if (songs.contains(song))
-			throw new IllegalArgumentException("This song already exists. Please change existing song or delete it.")
+			throw new IllegalArgumentException("This song already exists. Please change existing song or delete it.");
 		songs.add(song);
 	}
 
