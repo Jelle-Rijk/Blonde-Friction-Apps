@@ -6,12 +6,20 @@ public class Song {
 	private String title;
 
 	private SongStatus status;
+	private Collection<Recording> recordings;
 
 	/*
 	 * CONSTRUCTORS
 	 */
 	public Song(String title) {
 		setTitle(title);
+	}
+	
+	/*
+	 * RECORDINGS
+	 */
+	public addRecording(Recording recording) {
+		recordings.add(recording);
 	}
 
 	/*
