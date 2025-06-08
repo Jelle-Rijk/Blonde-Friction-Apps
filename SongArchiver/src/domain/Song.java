@@ -45,12 +45,12 @@ public class Song implements Comparable<Song> {
 		if (getClass() != o.getClass())
 			return false;
 		Song s = (Song) o;
-		return title.equals(s.title) && status == s.status;
+		return title.equals(s.title) && status == s.status && bpm == s.bpm;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(title, status);
+		return Objects.hash(title, status, bpm);
 	}
 
 	@Override
