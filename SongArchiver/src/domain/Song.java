@@ -8,6 +8,7 @@ import enums.SongStatus;
 
 public class Song implements Comparable<Song> {
 	private String title;
+	private int bpm;
 
 	private SongStatus status;
 	private Collection<Recording> recordings;
@@ -81,6 +82,14 @@ public class Song implements Comparable<Song> {
 
 	public Collection<Recording> getRecordings() {
 		return recordings;
+	}
+
+	public void setBPM(int bpm) {
+		this.bpm = bpm;
+	}
+
+	public int getBPM() {
+		return bpm;
 	}
 
 }
