@@ -22,8 +22,22 @@ public class SongRepository {
 	/*
 	 * READ
 	 */
+	/**
+	 * Gets a song by its title
+	 * @param title the unique title of the song to search for
+	 * @return the song with the specified title
+	 * @throws NoSuchElementException - if no song with title present
+	 */
 	public Song getSong(String title) {
 		return songs.stream().filter(s -> s.getTitle().equals(title)).findAny().orElseThrow();
+	}
+	
+	/**
+	 * Get all songs in the songRepository.
+	 * @return An ArrayList of all songs in the songRepository
+	 */
+	public List<Song> getSongs() {
+		return songs;
 	}
 
 	/*
