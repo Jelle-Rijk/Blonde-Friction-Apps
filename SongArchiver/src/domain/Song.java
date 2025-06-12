@@ -3,6 +3,7 @@ package domain;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 
 import enums.SongStatus;
 
@@ -25,7 +26,7 @@ public class Song implements Comparable<Song> {
 	}
 
 	public Song(String title) {
-		this(title, SongStatus.WORK_IN_PROGRESS, -1);
+		this(title, SongStatus.WORK_IN_PROGRESS, 0);
 	}
 
 	/*
@@ -89,15 +90,12 @@ public class Song implements Comparable<Song> {
 	}
 
 	public void setBPM(int bpm) {
-		if (bpm <= 0 && bpm != -1)
+		if (bpm <= 0)
 			throw new IllegalArgumentException("Invalid BPM");
 		this.bpm = bpm;
 	}
 
 	public int getBPM() {
-		if (bpm == -1)
-			throw new IllegalArgumentException("BPM was not set.");
 		return bpm;
 	}
-
 }
